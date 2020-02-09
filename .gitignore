@@ -1,0 +1,5 @@
+# Arquivos temporários do jupyter lab
+.ipynb_checkpoints
+
+# Python
+__pycache__
