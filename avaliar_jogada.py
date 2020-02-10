@@ -1,13 +1,18 @@
 #Avaliar se jogador ganhou após sua jogada ou se deu velha
+import deu_velha
+
 def avaliar(jogador,matriz):
     i=0
     dia1=0
     dia2=0
     fim=False
     criterio=3*jogador
-    #testar se player ganhou
+    
     while(i<3):
-        if(sum(matriz[i])==criterio):
+        if(deu_velha.deu_velha(matriz)==True):
+                fim=True
+                break
+        elif(sum(matriz[i])==criterio):
             print("Player "+str(jogador)+" ganhou. Linha"+str(i+1))
             fim=True
             break
@@ -32,9 +37,6 @@ def avaliar(jogador,matriz):
                 break
             elif(col==criterio):
                 print("Player "+str(jogador)+" ganhou. Coluna "+str(i+1))
-                fim=True
-                break
-            elif(deu_velha.deu_velha(matriz)==True):
                 fim=True
                 break
         i=i+1
