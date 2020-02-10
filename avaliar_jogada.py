@@ -3,12 +3,13 @@ def avaliar(jogador,matriz):
     i=0
     dia1=0
     dia2=0
-    vitoria=False
+    fim=False
     criterio=3*jogador
+    #testar se player ganhou
     while(i<3):
         if(sum(matriz[i])==criterio):
             print("Player "+str(jogador)+" ganhou. Linha"+str(i+1))
-            vitoria=True
+            fim=True
             break
         else:
             j=0
@@ -23,19 +24,22 @@ def avaliar(jogador,matriz):
 
             if(dia1==criterio):
                 print("Player "+str(jogador)+" ganhou. Diagonal Principal")
-                vitoria=True
+                fim=True
                 break
             elif(dia2==criterio):
                 print("Player "+str(jogador)+" ganhou. Diagonal Secundária")
-                vitoria=True
+                fim=True
                 break
             elif(col==criterio):
                 print("Player "+str(jogador)+" ganhou. Coluna "+str(i+1))
-                vitoria=True
+                fim=True
+                break
+            elif(deu_velha.deu_velha(matriz)==True):
+                fim=True
                 break
         i=i+1
-                      
+    
     for linha in matriz:
         print(linha)
         
-    return vitoria
+    return fim
